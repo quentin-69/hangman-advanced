@@ -1,0 +1,18 @@
+- bilder ersetzen
+
+- new game soll als verlieren zählen
+
+- datenbank und backend
+    -> PostgreSQL
+    -> gin / go
+    -> debian wsl
+
+datenbank:
+    table user
+        name
+        password
+        points
+        longest_win_streak
+        highscore
+        
+

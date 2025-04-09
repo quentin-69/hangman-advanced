@@ -1,0 +1,246 @@
+:root {
+    --primary-color: #a8d8d8;
+    --secondary-color: #f7c6b1;
+    --background-color: #f0f0f5;
+    --text-color: #333333;
+    --button-color: #a8d8d8;
+    --button-hover-color: #88c9c9;
+    --font-family: 'Roboto', sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-size-small: 1rem;
+    --font-size-medium: 1.5rem;
+    --font-size-large: 2rem;
+    --button-padding: 10px 20px;
+    --input-padding: 8px 15px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hangman-game-container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+}
+
+.hangman-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hangman-game__title {
+    font-size: var(--font-size-large);
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.hangman-game__word-display {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hangman-game__wrong-guesses {
+    font-size: var(--font-size-medium);
+    margin-bottom: 20px;
+}
+
+.hangman-game__restart-btn {
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--button-padding);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hangman-game__restart-btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+.swiss-clock__time {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiss-clock__label,
+.game-message__remaining-tries {
+    font-size: var(--font-size-small);
+}
+
+.game-message__won,
+.game-message__lost {
+    font-size: var(--font-size-medium);
+    font-weight: bold;
+}
+
+.game-message__won {
+    color: green;
+}
+
+.game-message__lost {
+    color: red;
+}
+
+.game-message__won,
+.game-message__lost,
+.game-message__remaining-tries {
+    margin: 10px;
+}
+
+.game-message__remaining-tries {
+    color: #ff6b6b;
+}
+
+.hangman-drawing__image {
+    width: 100%;
+    max-width: 250px;
+    margin: 20px;
+}
+
+.score-display {
+    font-size: var(--font-size-medium);
+    margin-bottom: 20px;
+}
+
+.score-display__win-loss {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-display__points,
+.score-display__win-loss {
+    margin: 10px;
+}
+
+.score-display__wins {
+    color: green;
+}
+
+.score-display__losses {
+    color: red;
+}
+
+.guess-input {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.guess-input * {
+    max-width: 100%;
+}
+
+.guess-input__label {
+    flex: 1;
+}
+
+.guess-input__input {
+    font-size: var(--font-size-medium);
+    padding: var(--input-padding);
+    border-radius: var(--border-radius);
+    border: 1px solid #ddd;
+    transition: box-shadow 0.2s ease;
+    flex: 1;
+}
+
+.guess-input__input:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 128, 255, 0.5);
+}
+
+.guess-input__submit-btn {
+    background-color: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--button-padding);
+    font-size: var(--font-size-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    flex: 1;
+    color: #ffffff;
+}
+
+.guess-input__submit-btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+.stats-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.stats-table {
+    width: 100%;
+    max-width: 400px;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+}
+
+.stats-label {
+    font-weight: bold;
+    padding: 8px;
+    text-align: left;
+}
+
+.stats-value {
+    padding: 8px;
+    text-align: right;
+    color: #4caf50;
+}
+
+.stats-table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.stats-table tr:last-child {
+    border-bottom: none;
+}
+
+.stats-table td {
+    padding: 8px;
+}
+
+.stats-table tr:hover {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 600px) {
+    .stats-table {
+        font-size: 1rem;
+    }
+}
