@@ -5,7 +5,7 @@
 - datenbank und backend
     -> PostgreSQL
     -> gin / go
-    -> debian wsl
+    -> beides auf dem debian wsl (cshon vorhanden)
 
 datenbank:
     table user

@@ -5,7 +5,7 @@ import { SwissClock } from './SwissClock';
 import { HangmanDrawing } from './HangmanDrawing';
 import { GuessInput } from './GuessInput';
 import { GameMessage } from './GameMessage';
-import Stats from './Stats';  // Importiere die Stats-Komponente
+import Stats from './Stats';
 import '../styles/HangmanGame.css';
 
 const MAX_TRIES = 7;
@@ -37,13 +37,13 @@ export default function HangmanGame() {
     }, [words]);
 
     useEffect(() => {
-        fetch('/word_list.txt')
+        fetch(process.env.PUBLIC_URL + '/word_list.txt')
             .then((res) => res.text())
             .then((data) => {
                 const wordArray = data.split('\n').map((w) => w.trim().toLowerCase()).filter(Boolean);
                 setWords(wordArray);
-            })
-            .catch((error) => console.error("Error fetching word list:", error));
+        })
+        .catch((error) => console.error("Error fetching word list:", error));
     }, []);
 
     useEffect(() => {
