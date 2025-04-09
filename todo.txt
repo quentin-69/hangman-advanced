@@ -16,3 +16,35 @@ datenbank:
         highscore
         
 
+---
+
+CREATE TABLE "user" (
+    id SERIAL PRIMARY KEY,             -- Auto-incrementierte ID
+    name VARCHAR(100) NOT NULL,        -- Benutzername (max. 100 Zeichen)
+    password VARCHAR(255) NOT NULL,    -- Passwort (max. 255 Zeichen)
+    points INT DEFAULT 0,              -- Punkte (Standardwert: 0)
+    longest_win_streak INT DEFAULT 0,  -- Längste Siegesserie (Standardwert: 0)
+    highscore INT DEFAULT 0            -- Höchstpunktzahl (Standardwert: 0)
+);
+
+---
+
+10.4.2025
+
+- log in funktionen
+    -registrir knopf funktionirend machen
+        -http://localhost:8080/users (Post)
+        - mit json body: 
+            {
+                "name": "aus dem input feld",
+                "password": "aus dem input feld",
+                "points": 0,
+                "longest_win_streak": 0,
+                "highscore": 0
+            }
+    -log in funktion fixen
+
+frontend starten: "cd /mnt/c/Development/Schnupperwoche/Spiel\ 1/hangman-advanced && npm start"
+backend starten: "cd /home/debian/Development/backend && go run main.go"
+
+- bilder fixen ( ohne hintergrund) 

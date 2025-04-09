@@ -7,6 +7,9 @@ import { GuessInput } from './GuessInput';
 import { GameMessage } from './GameMessage';
 import Stats from './Stats';
 import '../styles/HangmanGame.css';
+import LoginModal from './LoginModal'; // Default import
+import RegisterModal from './RegisterModal'; // Default import
+
 
 const MAX_TRIES = 7;
 
@@ -25,6 +28,9 @@ export default function HangmanGame() {
     const [winStreak, setWinStreak] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [longestWinStreak, setLongestWinStreak] = useState(0);
+
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showRegisterModal, setShowRegisterModal] = useState(false);
 
     const startGame = useCallback((wordArray = words) => {
         const word = wordArray[Math.floor(Math.random() * wordArray.length)];
@@ -51,11 +57,6 @@ export default function HangmanGame() {
             startGame(words);
         }
     }, [words, startGame]);
-
-    useEffect(() => {
-        const interval = setInterval(updateSwissTime, 1000);
-        return () => clearInterval(interval);
-    }, []);
 
     const updateSwissTime = () => {
         const options = {
@@ -162,8 +163,16 @@ export default function HangmanGame() {
                 <button className="hangman-game__restart-btn" onClick={() => startGame(words)}>
                     New Game
                 </button>
+
+                <div className="auth-buttons">
+                    <button onClick={() => setShowLoginModal(true)}>Login</button>
+                    <button onClick={() => setShowRegisterModal(true)}>Register</button>
+                </div>
+
+                {/* Login and Register Modals */}
+                <LoginModal showModal={showLoginModal} setShowModal={setShowLoginModal} />
+                <RegisterModal showModal={showRegisterModal} setShowModal={setShowRegisterModal} />
             </div>
         </div>
     );
 }
-
