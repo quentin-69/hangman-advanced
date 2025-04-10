@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 
-export default function LoginModal({ showModal, setShowModal }) {
+export default function LoginModal({ showModal, setShowModal, setCurrentUser }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
     const handleLogin = async () => {
         try {
-            const response = await fetch('http://localhost:8080/login', {  // Backend-Endpunkt zum Login
+            const response = await fetch('http://localhost:8080/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ username, password }),  // Username und Passwort senden
+                body: JSON.stringify({ username, password }),
             });
 
             const data = await response.json();
 
             if (response.ok) {
                 console.log('Login successful', data);
+                setCurrentUser(data);  // Speichere den Benutzernamen im Zustand
                 setShowModal(false);  // Modal nach erfolgreichem Login schließen
             } else {
                 setError(data.error || 'Login failed');

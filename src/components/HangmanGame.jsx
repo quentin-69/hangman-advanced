@@ -1,4 +1,3 @@
-// HangmanGame.js
 import React, { useState, useEffect, useCallback } from 'react';
 import { ScoreDisplay } from './ScoreDisplay';
 import { SwissClock } from './SwissClock';
@@ -31,9 +30,13 @@ export default function HangmanGame() {
 
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showRegisterModal, setShowRegisterModal] = useState(false);
+    
+    // Neuer Zustand für den eingeloggten Benutzer
+    const [currentUser, setCurrentUser] = useState(null); // Benutzerzustand hinzufügen
 
     const startGame = useCallback((wordArray = words) => {
         const word = wordArray[Math.floor(Math.random() * wordArray.length)];
+        console.log(`[INFO]: das aktuelle wort ist '${word}'`);
         setSelectedWord(word);
         setDisplayedWord(Array(word.length).fill('_'));
         setWrongGuesses([]);
@@ -121,6 +124,11 @@ export default function HangmanGame() {
     return (
         <div className="hangman-game-container">
             <div className="hangman-game">
+                {/* Benutzeranzeige oben rechts */}
+                <div className="user-info">
+                    {currentUser ? `Hallo, ${currentUser.name}` : 'Nicht angemeldet'}
+                </div>
+                
                 <SwissClock 
                     swissTime={swissTime} 
                 />
@@ -170,7 +178,11 @@ export default function HangmanGame() {
                 </div>
 
                 {/* Login and Register Modals */}
-                <LoginModal showModal={showLoginModal} setShowModal={setShowLoginModal} />
+                <LoginModal 
+                    showModal={showLoginModal} 
+                    setShowModal={setShowLoginModal} 
+                    setCurrentUser={setCurrentUser}  // Übergebe setCurrentUser als Prop
+                />
                 <RegisterModal showModal={showRegisterModal} setShowModal={setShowRegisterModal} />
             </div>
         </div>

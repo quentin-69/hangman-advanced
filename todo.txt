@@ -48,3 +48,7 @@ frontend starten: "cd /mnt/c/Development/Schnupperwoche/Spiel\ 1/hangman-advance
 backend starten: "cd /home/debian/Development/backend && go run main.go"
 
 - bilder fixen ( ohne hintergrund) 
+
+
+- User anzeigen 
+    -User info seichen 
