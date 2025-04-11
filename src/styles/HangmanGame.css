@@ -244,3 +244,76 @@ body {
         font-size: 1rem;
     }
 }
+
+.hangman-game__restart-btn {
+    background-color: var(--button-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: var(--button-padding);
+    font-size: var(--font-size-small);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 35px;
+    
+}
+
+.hangman-game__restart-btn:hover {
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+}
+
+button:last-child {
+    margin-right: 0;
+}
+.Login-Buton, .Register-Buton {
+    margin-top: 10px;
+    background: var(--button-color);
+    border: none;
+    border-radius: var(--border-radius);
+    height: 35px;
+    width: 60px;
+    color: white;
+}
+
+
+.Login-Buton {
+    margin-right: 20px;
+}
+
+.Register-Buton {
+    margin-left: 20px;
+}
+
+.new-game-button {
+    font-size: var(--font-size-medium);
+    height: 50px;
+    margin-top: 10px;
+}
+
+.Login-Buton:hover {
+    background: var(--button-hover-color);
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: var(--button-hover-color);
+}
+
+.input-feld {
+    height: 30px;
+    border-radius: var(--border-radius);
+    color: lightblue;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: darkslateblue;
+}
+
+.regster-feld {
+    height: 30px;
+    border-radius: var(--border-radius);
+    color: darkslateblue;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+

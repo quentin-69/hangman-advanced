@@ -168,13 +168,13 @@ export default function HangmanGame() {
                     selectedWord={selectedWord} 
                 />
                 
-                <button className="hangman-game__restart-btn" onClick={() => startGame(words)}>
+                <button className="hangman-game__restart-btn new-game-button" onClick={() => startGame(words)}>
                     New Game
                 </button>
 
                 <div className="auth-buttons">
-                    <button onClick={() => setShowLoginModal(true)}>Login</button>
-                    <button onClick={() => setShowRegisterModal(true)}>Register</button>
+                    <button className="Login-Buton" onClick={() => setShowLoginModal(true)}>Login</button>
+                    <button className="Register-Buton" onClick={() => setShowRegisterModal(true)}>Register</button>
                 </div>
 
                 {/* Login and Register Modals */}

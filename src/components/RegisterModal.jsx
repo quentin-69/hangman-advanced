@@ -40,20 +40,22 @@ export default function RegisterModal({ showModal, setShowModal }) {
                 <div className="modal-content">
                     <h2>Register</h2>
                     <input
+                        class="regster-feld"
                         type="text"
                         placeholder="Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                     <input
+                        class="regster-feld"
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button onClick={handleRegister}>Register</button>
+                    <button className="hangman-game__restart-btn" onClick={handleRegister}>Register</button> {/* Ändere die Klasse hier */}
                     {error && <div className="error">{error}</div>}
-                    <button onClick={() => setShowModal(false)}>Close</button>
+                    <button className="hangman-game__restart-btn" onClick={() => setShowModal(false)}>Close</button> {/* Ändere die Klasse hier */}
                 </div>
             </div>
         )

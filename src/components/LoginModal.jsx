@@ -35,23 +35,24 @@ export default function LoginModal({ showModal, setShowModal, setCurrentUser }) 
                 <div className="modal-content">
                     <h2>Login</h2>
                     <input
+                        className='input-feld'
                         type="text"
                         placeholder="Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                     <input
+                        className='input-feld'
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button onClick={handleLogin}>Login</button>
+                    <button className="hangman-game__restart-btn" onClick={handleLogin}>Login</button> {/* Ändere die Klasse hier */}
                     {error && <div className="error">{error}</div>}
-                    <button onClick={() => setShowModal(false)}>Close</button>
+                    <button className="hangman-game__restart-btn" onClick={() => setShowModal(false)}>Close</button> {/* Ändere die Klasse hier */}
                 </div>
             </div>
         )
-    );  
+    );
 }
-
