@@ -52,5 +52,6 @@ export default function LoginModal({ showModal, setShowModal, setCurrentUser }) 
                 </div>
             </div>
         )
-    );
+    );  
 }
+

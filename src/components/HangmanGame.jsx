@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ScoreDisplay } from './ScoreDisplay';
 import { SwissClock } from './SwissClock';
-import { HangmanDrawing } from './HangmanDrawing';
+import HangmanDrawing from './HangmanDrawing';
 import { GuessInput } from './GuessInput';
 import { GameMessage } from './GameMessage';
 import Stats from './Stats';
@@ -118,13 +118,12 @@ export default function HangmanGame() {
 
     const getImageSrc = () => {
         const level = MAX_TRIES - triesLeft + 1;
-        return `/img/level${level}.png`;
+        return `${process.env.PUBLIC_URL}/img/level${level}.png`;
     };
 
     return (
         <div className="hangman-game-container">
             <div className="hangman-game">
-                {/* Benutzeranzeige oben rechts */}
                 <div className="user-info">
                     {currentUser ? `Hallo, ${currentUser.name}` : 'Nicht angemeldet'}
                 </div>
@@ -158,6 +157,7 @@ export default function HangmanGame() {
                     Wrong letters: {wrongGuesses.join(', ')}
                 </div>
                 
+                {/* Passing the result of getImageSrc() function to the src prop */}
                 <HangmanDrawing 
                     imageSrc={getImageSrc()} 
                 />
